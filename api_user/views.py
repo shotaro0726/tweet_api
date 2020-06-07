@@ -28,7 +28,7 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         try:
-            is_friend = Profile.objects.get(user=self.request.user)
+            is_friend = Profile.objects.get(user=self.request.userpro)
         except Profile.DoesNotExits:
             is_friend = None
         
@@ -40,6 +40,6 @@ class ProfileViewSet(viewsets.ModelViewSet):
     
     def perform_create(self, serializer):
         try:
-            serializer.save(user=self.request.user)
+            serializer.save(userpro=self.request.userpro)
         except IntegrityError:
             raise ValidationError('User can have only one own profile')

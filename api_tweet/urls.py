@@ -1,13 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from api_dm import views
+from api_tweet import views
 
-app_name = 'dm'
-
+app_name = 'tweet'
 router = DefaultRouter()
-router.register('message', views.MessageViewSet)
+router.register('new', views.TweetViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('index/', views.InboxListView.as_view(), name='index'),
 ]

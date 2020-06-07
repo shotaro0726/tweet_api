@@ -42,8 +42,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Profile(models.Model):
     nickname = models.CharField(max_length=20)
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, related_name='user', on_delete=models.CASCADE)
+    userpro = models.OneToOneField(
+        settings.AUTH_USER_MODEL, related_name='userpro', on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
     friends = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name='friends')
@@ -61,3 +61,18 @@ class Message(models.Model):
     
     def __str__(self):
         return self.message
+
+class Tweet(models.Model):
+    text = models.CharField(max_length=140)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='owner', on_delete=models.CASCADE)
+    
+    def Tweet_by(self):
+        try:
+            temp = Profile.objects.get(userpro=self.owner)
+        except Profile.DoesNotExist:
+            temp = None
+            return
+        return temp.nickname
+    
+    def __str__(self):
+        return self.text
