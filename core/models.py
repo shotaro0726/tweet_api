@@ -11,7 +11,7 @@ def upload_path(instance, filename):
 class UserManager(BaseUserManager):
 
     def create_user(self, email, password=None, **extra_fields):
-        #email必須
+        
         if not email:
             raise ValueError('Email address is must')
         user = self.model(email=self.normalize_email(email), **extra_fields)
