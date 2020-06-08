@@ -16,3 +16,7 @@ class UserCreateTests(TestCase):
 
         self.assertEqual(user.email, email)
         self.assertTrue(user.check_password(password))
+
+
+test = UserCreateTests()
+print(test)
