@@ -12,7 +12,7 @@ bleach==3.1.0
 boto==2.49.0
 bs4==0.0.1
 cachetools==4.0.0
-celery==4.4.0
+celery==5.2.2
 certifi==2019.11.28
 chardet==3.0.4
 Click==7.0
