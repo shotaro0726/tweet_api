@@ -115,7 +115,7 @@ pycodestyle==2.5.0
 pydot==1.4.1
 pydotplus==2.0.2
 Pygments==2.5.2
-PyJWT==1.7.1
+PyJWT==2.4.0
 PyMySQL==0.9.3
 pyparsing==2.4.6
 pyrsistent==0.15.7
